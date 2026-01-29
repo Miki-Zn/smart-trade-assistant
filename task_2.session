@@ -1,0 +1,47 @@
+SQLite format 3@  &&.v�
+�
+�
+�
+\
+���b=�{triggertrg_peers_last_update_onpeersCREATE TRIGGER trg_peers_last_update_on
+    AFTER UPDATE
+    ON peers
+BEGIN
+    UPDATE peers
+    SET last_update_on = CAST(STRFTIME('%s', 'now') AS INTEGER)
+    WHERE id = NEW.id;
+ENDc9�indexidx_peers_phone_numberpeersCREATE INDEX idx_peers_phone_number ON peers (phone_number)V1sindexidx_peers_usernamepeersCREATE INDEX idx_peers_username ON peers (username)D%[indexidx_peers_idpeersCREATE INDEX idx_peers_id ON peers (id)Q{tableversionversionCREATE TABLE version
+(
+    number INTEGER PRIMARY KEY
+)��tablepeerspeersCREATE TABLE peers
+(
+    id             INTEGER PRIMARY KEY,
+    access_hash    INTEGER,
+    type           INTEGER NOT NULL,
+    username       TEXT,
+    phone_number   TEXT,
+    last_update_on INTEGER NOT NULL DEFAULT (CAST(STRFTIME('%s', 'now') AS INTEGER))
+)�h�#tablesessionssessionsCREATE TABLE sessions
+(
+    dc_id     INTEGER PRIMARY KEY,
+    api_id    INTEGER,
+    test_mode INTEGER,
+    auth_key  BLOB,
+    date      INTEGER NOT NULL,
+    user_id   INTEGER,
+    is_bot    INTEGER
+)
+���	��C!n�����3�0�$�-�=管Az�?׮��
+4#֭��c�]����L�N?����np>��OgJiʈ�yҦ0( �O�]��e6��6��hJ�X�	q��X)��q&6���H�h�ŀZsL�w�b��S~>�c�[�1�㯾����K�PJ���<��qK�n�7�ďX��;n����)J}[9Q�$�O-����'|s'���W_���s눪��O�2���'w��r�w5�u���'�h$�TnAu�i5l��6��
+A��t<���kE!
+�
+�
+�
+{
+L
+"���iA"����K%������2botgodognewsboti4�v$����')z�b��P�botqwerthhnbvcboth���3����/#Ȣ7Z��~�userfor_you_aducation41795198923i4�#�鴒c%3x�Oд9�user972547930171h���'�׽�?-�amsS5�<userdarkstorepartnerh���$����';�]A�'�user4915213560322i4��)���13Rv�O��Vbotsubgram_officialboth���#����p%ϰ]vv/q	user380980609981i4��'���8/IF�]�,Sbotgroupanonymousboth���%����6+M��N@�bottelemetr_io_both��� �ݸu!q�5B\�Abotrawdataboth���ف�0]�)V��botgetidsboth���!���#xN��kz%botchannel_boti5lp�Á	Q�~n6�botbotfatherh�����(`m]<��^user42777h���'�������'����0�channelcointelegraphi4�`'����ԜX'�|XE�6�channelcoingraphnewsi5lp!���񵃣��:�W:�]m4channelfdhkslah���.��������!/����;��supergroupchatcointelegraphi4�`$���񴺢�U!�/p�-��channelmacroblocki5]6-���񴇭�3���:\echannelhelpmematherfuckingh�������붲�U!rߛc�supergrouph���
+��
+���������znbVJ>.�������K��K��r'��r'�6���6���-	c�-	c��C?��C?��p��p������A�~pA�~p@�8@�8?C�6?C�6�\u�\u p� p�'�'�������	�(�(��jy���jy����X���X��щ���щ����������|U���|U���������m�0U�m�0U
+O��������{dJ9
+������fO+telemetr_io_bot?C�63subgram_officialbot���!rawdatabot�\u)qwerthhnbvcbot��r'!macroblock���|U3helpmematherfucking����/groupanonymousbot@�8%godognewsbot��Kgetidsbot p�/for_you_aducation�6��fdhksla��щ�-darkstorepartner��C?'cointelegraph��jy�'coingraphnews���X/chatcointelegraph���#channel_bot'�botfather���	�-	c	��p	A�~p�(	�m�0U
+���������������vlbL7+�%972547930171�-	c'4915213560322��p42777�(#41795198923�6��%380980609981A�~p	��K	��r'	��C?	���@�8?C�6�\u p�'����	��jy�	���X	��щ�	���	���|U	����	�m�0U
